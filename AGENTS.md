@@ -1,7 +1,8 @@
 # ATAA 리뉴얼 실험 프로젝트
 
 - 기존 운영 사이트 https://ahntibody87.github.io/admissions-atlas/ 와 기존 저장소는 수정하지 않는다.
-- 이 프로젝트의 별도 저장소 이름: ahntibody87/admissions-atlas-next. 원격 생성 결과와 배포 주소는 확인 뒤 기록한다.
+- GitHub: https://github.com/ahntibody87/admissions-atlas-next (PUBLIC, 실제 생성 확인).
+- GitHub Pages: https://ahntibody87.github.io/admissions-atlas-next/ (main / 루트, 게시 및 HTTP 200 확인).
 - Supabase project ref / Vercel projectId / orgId: 해당 없음. 현재는 정적 비교 시안이며 DB와 로그인, Vercel을 사용하지 않는다.
 - 사용자의 첫 요청은 디자인 방향을 함께 고르는 것. 전체 이관 전에 입장·메인·대표 내부 화면을 3개 안으로 비교한다.
 - 네 메뉴: 목표 설계, 자료 아카이브, 전형 분석, 원서 접수 시뮬레이션.

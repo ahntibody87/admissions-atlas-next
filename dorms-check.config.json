@@ -1,0 +1,15 @@
+{
+  "app": {
+    "name": "ATAA 리뉴얼 비교판",
+    "url": "https://ahntibody87.github.io/admissions-atlas-next/",
+    "stack": "정적 HTML"
+  },
+  "tracks": [
+    "security"
+  ],
+  "edzipCase": null,
+  "teacher": {
+    "dormsHandle": ""
+  },
+  "ownershipConfirmed": true
+}
