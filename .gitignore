@@ -1,0 +1,9 @@
+node_modules/
+.env*
+.vercel/
+.codex/
+.agents/
+artifacts/
+*.log
+.DS_Store
+Thumbs.db

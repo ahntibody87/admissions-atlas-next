@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="ATAA 리뉴얼 디자인 비교판. 세 가지 방향의 입장 화면, 메인, 전형 분석을 비교합니다.">
+  <meta name="theme-color" content="#142c28">
+  <title>ATAA — 리뉴얼 디자인 비교</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-theme="a" data-view="intro">
+  <a class="skip" href="#page-title">본문 바로가기</a>
+  <aside class="review-bar" aria-label="디자인 시안 비교">
+    <span class="review-label">ATAA <span>디자인 비교 · 01</span></span>
+    <div class="directions" role="group" aria-label="디자인 방향 선택">
+      <button type="button" data-theme-choice="a" aria-pressed="true">A <span>깊이 있는 지도</span></button>
+      <button type="button" data-theme-choice="b" aria-pressed="false">B <span>명료한 리서치</span></button>
+      <button type="button" data-theme-choice="c" aria-pressed="false">C <span>담백한 아틀라스</span></button>
+    </div>
+    <button type="button" class="review-help" id="review-help">비교 안내 <span aria-hidden="true">↗</span></button>
+  </aside>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="ATAA 메인"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M3 29L15 6h6l12 23h-7L18 13 10 29Z" fill="currentColor"/><path d="M14 25h8v4h-8z" fill="currentColor"/></svg><span>ATAA<span class="brand-sub">ADMISSIONS ATLAS</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">메뉴 <span aria-hidden="true">＋</span></button>
+      <nav id="site-nav" aria-label="주 메뉴">
+        <a href="#goals"><span>01</span> 목표 설계</a>
+        <a href="#archive"><span>02</span> 자료 아카이브</a>
+        <a href="#analysis"><span>03</span> 전형 분석</a>
+        <a href="#simulation"><span>04</span> 원서 접수 시뮬레이션</a>
+      </nav>
+      <span class="header-note">AHNTIBODY’S<br>ADMISSIONS ATLAS</span>
+    </header>
+    <main id="app"></main>
+    <footer class="site-footer"><a href="#home">ATAA <span>Ahntibody’s Admissions Atlas</span></a><span>입시 정보의 연결, 선택의 시작.</span><a href="https://ahntibody87.github.io/admissions-atlas/" target="_blank" rel="noopener">현재 운영 사이트 ↗</a></footer>
+  </div>
+  <nav class="preview-nav" aria-label="비교할 화면 선택"><span>화면 보기</span><a href="#intro" data-preview="intro">입장</a><a href="#home" data-preview="home">메인</a><a href="#analysis" data-preview="analysis">전형 분석</a></nav>
+  <dialog id="review-dialog" aria-labelledby="review-title">
+    <form method="dialog"><button class="close-dialog" aria-label="비교 안내 닫기">닫기 ×</button></form>
+    <p class="eyebrow">DESIGN STUDY / 01</p><h2 id="review-title">같은 내용, 세 가지 인상.</h2>
+    <p>위쪽에서 A·B·C를 바꾸고, 아래쪽에서 입장·메인·전형 분석 화면을 오가며 비교해 보세요.</p>
+    <dl><dt>A · 깊이 있는 지도</dt><dd>짙은 초록, 넓게 펼친 지도, 굵은 제목. 입장 장면의 몰입감에 무게를 둡니다.</dd><dt>B · 명료한 리서치</dt><dd>흰 바탕과 파랑, 정돈된 격자와 선. 정보를 빠르게 찾는 입시 서비스에 무게를 둡니다.</dd><dt>C · 담백한 아틀라스</dt><dd>따뜻한 종이색, 먹색과 주홍색, 비대칭 편집. 차분하고 고유한 인상에 무게를 둡니다.</dd></dl>
+    <div class="type-sample"><span>Pretendard Variable · 제목 900 / 800 / 750</span><strong>입시를 읽고, 나의 길을 그리다.</strong><p>본문 500 · 대학별 전형 기준과 학년도별 변화를 확인합니다.</p><span>2027 → 2028　내신 2.35　모집인원 49</span></div>
+    <p class="review-disclaimer">현재는 디자인과 동작 비교판입니다. 지도는 실제 지리가 아닌 개념도이며, 완성된 영상 대신 지도 움직임을 보여줍니다. 대학 목록은 기존 공개 자료를 사용하며, 대학 상세와 계산 도구는 현재 운영 사이트에서 열립니다. 원서 접수 시뮬레이션은 준비 중입니다.</p>
+  </dialog>
+  <noscript><p class="no-script">비교 화면을 보려면 JavaScript를 켜 주세요. <a href="https://ahntibody87.github.io/admissions-atlas/">현재 ATAA 사이트 열기</a></p></noscript>
+</body>
+</html>
