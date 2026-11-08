@@ -2,5 +2,8 @@
   "name": "admissions-atlas-next",
   "version": "0.1.0",
   "private": true,
-  "scripts": { "dev": "node tools/serve.cjs", "check": "node --check app.js && node --check tools/serve.cjs" }
+  "scripts": {
+    "dev": "node tools/serve.cjs",
+    "check": "node --check app.js && node --check data.js && node --check tools/serve.cjs"
+  }
 }
