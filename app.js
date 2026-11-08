@@ -25,7 +25,7 @@
     <div class="entrance-bottom"><button class="scroll-entry" id="scroll-entry" type="button">한 번 스크롤하거나 눌러서 입장 <span aria-hidden="true">↓</span></button><button id="about-button" type="button" aria-haspopup="dialog">플랫폼 소개 <span aria-hidden="true">＋</span></button></div>
     <p class="media-status" id="media-status" role="status"></p>
   </section><section id="home-panel" class="home-panel" aria-label="입시 메뉴 홈" hidden inert>${home(true)}</section>`; }
-  function home(embedded=false) { return `<div class="page-wrap home-layout"><section class="home-intro"><p class="eyebrow">대입 나침반</p><h1 id="${embedded?'home-title':'page-title'}" tabindex="-1">필요한 입시 정보를<br>한곳에서 확인하세요.</h1><p class="lead">성적 분석과 목표 설정, 대학별 자료와 전형 비교.</p></section><section aria-labelledby="menu-title"><div class="section-top"><h2 id="menu-title">CONTENTS</h2><span>원하는 항목을 선택하세요</span></div><div class="menu-grid">${sections.map(s=>`<a class="menu-card" href="#${s.id}"><span class="index">${s.no}</span><h2>${s.name}</h2><p>${s.desc}</p><span class="card-end"><span${s.id==='simulation'?' class="soon"':''}>${s.meta}</span><b aria-hidden="true">↗</b></span></a>`).join('')}</div></section><section class="updates" aria-labelledby="updates-title"><h2 id="updates-title">최근 반영</h2><div class="updates-list">${external('grades/#semester','<span><time datetime="2026-10-29">2026.10.29</time></span>학기별 목표 성적 시뮬레이션 개편 ↗')}${external('regular/','<span><time datetime="2026-10-23">2026.10.23</time></span>정시 성적 분석과 목표 설정 추가 ↗')}${external('archive/subjects/','<span><time datetime="2026-10-23">2026.10.23</time></span>47개 대학 권장과목 찾기 추가 ↗')}</div></section><p class="home-note">자료와 계산 도구는 기존 ATAA에서 새 창으로 열립니다.</p></div>`; }
+  function home(embedded=false) { return `<div class="page-wrap home-layout"><section class="home-intro"><p class="eyebrow">대입 나침반</p><h1 id="${embedded?'home-title':'page-title'}" tabindex="-1">필요한 입시 정보를<br>한곳에서 확인하세요.</h1><p class="lead">개인 맞춤형 진학 지도 플랫폼</p></section><section aria-labelledby="menu-title"><div class="section-top"><h2 id="menu-title">CONTENTS</h2><span>원하는 항목을 선택하세요</span></div><div class="menu-grid">${sections.map(s=>`<a class="menu-card" href="#${s.id}"><span class="index">${s.no}</span><h2>${s.name}</h2><p>${s.desc}</p><span class="card-end"><span${s.id==='simulation'?' class="soon"':''}>${s.meta}</span><b aria-hidden="true">↗</b></span></a>`).join('')}</div></section><section class="updates" aria-labelledby="updates-title"><h2 id="updates-title">최근 반영</h2><div class="updates-list">${external('grades/#semester','<span><time datetime="2026-10-29">2026.10.29</time></span>학기별 목표 성적 시뮬레이션 개편 ↗')}${external('regular/','<span><time datetime="2026-10-23">2026.10.23</time></span>정시 성적 분석과 목표 설정 추가 ↗')}${external('archive/subjects/','<span><time datetime="2026-10-23">2026.10.23</time></span>47개 대학 권장과목 찾기 추가 ↗')}</div></section></div>`; }
 
   function heading(no, en, title, description, edition='') { return `<nav class="breadcrumb" aria-label="현재 위치"><a href="#home">홈</a><span aria-hidden="true">/</span><span>${title}</span></nav><section class="page-heading"><div><p class="eyebrow">${no}</p><h1 id="page-title" tabindex="-1">${title}</h1><p>${description}</p></div>${edition?`<span class="edition">${edition}</span>`:''}</section>`; }
   function analysis() { return `<div class="page-wrap">${heading('03','ADMISSIONS ANALYSIS','전형 분석','대학별 전형 기준과 모집인원, 학년도별 변화를 정리합니다.<br>대학을 선택해 필요한 내용을 확인하세요.','2027 — 2028학년도')}<div class="directory-toolbar"><label class="search-field" for="university-search"><span>대학 찾기</span><input type="search" id="university-search" placeholder="대학 이름을 입력하세요" autocomplete="off" value="${escape(query)}"></label><p class="result-count" id="result-count" role="status" aria-live="polite"></p></div><div class="list-head" aria-hidden="true"><span>대학명</span><span>캠퍼스</span><span>모집단위</span><span>상세 자료</span></div><section id="university-list" aria-label="대학별 전형 분석 목록"></section><div class="data-note"><p>기존 ATAA 공개 자료 기준입니다. 모집단위 수는 제공 자료의 비교 범위이며 대학 전체 학과 수와 다를 수 있습니다. 상세 자료는 현재 운영 사이트에서 새 창으로 열립니다.</p><span>자료 확인 2026.10.22</span></div></div>`; }
@@ -50,9 +50,11 @@
   function syncNavigation() {
     const landing=document.querySelector('.entrance');
     if(landing&&stage==='home'&&Math.abs(window.scrollY-document.querySelector('#home-panel').offsetTop)<1)scrollLockUntil=0;
-    const progress=landing?Math.max(0,Math.min(1,(window.scrollY/landing.offsetHeight-.12)/.5)):1;
-    header.style.setProperty('--nav-opacity',progress);
-    header.inert=progress<.85;
+    const progress=landing?Math.max(0,Math.min(1,window.scrollY/landing.offsetHeight)):1;
+    const visible=!landing||stage!=='portrait';
+    header.style.setProperty('--nav-opacity',visible?1:0);
+    header.style.setProperty('--nav-background',landing?(.82+.18*progress):1);
+    header.inert=!visible;
     document.querySelectorAll('#site-nav a').forEach(a=>{a.removeAttribute('aria-current');if(a.hash===`#${view}`)a.setAttribute('aria-current','page');});
   }
   function render(shouldFocus=true) {
@@ -91,7 +93,7 @@
     if(stage!=='portrait'||entering||dialog.open)return;
     entering=true;stage='expanding';document.body.dataset.stage=stage;
     const frame=document.querySelector('.video-window');frame.getBoundingClientRect();
-    document.body.classList.add('entering');
+    document.body.classList.add('entering');syncNavigation();
     const finish=()=>{
       if(stage!=='expanding')return;
       clearTimeout(entryTimer);finishExpansion=null;entering=false;stage='expanded';readyAt=performance.now()+450;
@@ -99,6 +101,7 @@
       const panel=document.querySelector('#home-panel');panel.hidden=false;panel.inert=false;
       document.querySelector('#enter').setAttribute('aria-label','입시 메뉴로 이동');
       document.querySelector('#scroll-entry').innerHTML='아래로 스크롤해 메뉴 보기 <span aria-hidden="true">↓</span>';
+      syncNavigation();
     };
     finishExpansion=finish;
     if(motion.matches){finish();return;}

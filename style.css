@@ -27,3 +27,18 @@ body[data-view=intro]{overflow:hidden}body.landing-session #app{padding-top:0}bo
 @media(max-width:359px){.menu-grid{grid-template-columns:1fr}.menu-card{min-height:200px}.home-intro h1{font-size:29px}.entrance-top>span{max-width:135px;font-size:7px}.video-window{width:82vw}.intro-title{font-size:44px}.footer-inner{gap:12px}.signature{margin-left:auto}}
 .entrance{overflow:clip;overflow-anchor:none}
 .entrance-top .brand>span{font:inherit;letter-spacing:inherit;color:inherit}
+
+/* Expanded video keeps navigation visible; scrolling strengthens its white surface. */
+.site-header{background:rgba(255,255,255,var(--nav-background,1));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:opacity .3s ease,transform .3s ease}
+@media(min-width:761px){
+  .home-layout{min-height:calc(100svh - var(--header-height) - var(--footer-height));display:flex;flex-direction:column;justify-content:space-evenly;gap:clamp(14px,2svh,28px);padding-block:clamp(16px,2.5svh,36px)}
+  .home-layout>section{width:100%}
+  .home-layout .home-intro{padding:0}
+  .home-layout .home-intro h1{font-size:clamp(38px,4.4svh,60px)}
+  .home-layout .home-intro .lead{font-size:16px;margin-top:14px}
+  .home-layout .menu-card{min-height:clamp(215px,29svh,370px);padding-block:clamp(20px,3svh,40px)}
+  .home-layout .menu-card .index{margin-bottom:clamp(18px,3svh,38px)}
+  .home-layout .menu-card h2{font-size:clamp(23px,2.8svh,32px)}
+  .home-layout .menu-card p{font-size:clamp(13px,1.3svh,16px)}
+  .home-layout .updates{padding:0;min-height:clamp(64px,8svh,108px);align-items:center}
+}
