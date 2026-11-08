@@ -1,0 +1,96 @@
+<!doctype html><html lang="ko"><head><link rel="stylesheet" href="../../style.css?v=20261109">
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>수시 설계 | ATAA</title><meta name="description" content="내신 환산 분석과 학기별 목표 성적 시뮬레이션으로 현재 위치와 앞으로의 준비 방향을 살펴봅니다.">
+ <meta name="theme-color" content="#eef4fd">
+ 
+ <link rel="stylesheet" href="../assets/analysis.css?v=20261023-layout1">
+ 
+ <link rel="stylesheet" href="../assets/grades.css?v=20261029-2">
+ <script src="../assets/grade-model.js" defer></script><script src="../assets/grade-prediction.js?v=20261029-2" defer></script><script src="../assets/semester-plan.js?v=20261029-2" defer></script><script src="../assets/grades.js?v=20261029-2" defer></script>
+<link rel="stylesheet" href="../../internal/shell.css"><script src="../../internal/shell.js" defer></script></head><body><div class="site-shell"><header class="site-header">
+<div class="header-inner"><a class="brand" href="../../#home" aria-label="ATAA 메인"><img src="../../assets/compass.svg" alt="" width="40" height="40"><span>ATAA</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">메뉴 <span aria-hidden="true">＋</span></button>
+<nav id="site-nav" aria-label="주 메뉴">
+<a href="../../#goals"><span>01</span> 목표 설계</a><a href="../../#archive"><span>02</span> 입시 자료</a><a href="../../#analysis"><span>03</span> 전형 분석</a><a href="../../#simulation"><span>04</span> 원서 접수 시뮬레이션</a>
+</nav></div></header><div class="legacy-content"><main id="main" class="analysis-main">
+  <section class="page-intro">
+   <nav class="breadcrumb" aria-label="현재 위치"><a href="../../#home">홈</a><span aria-hidden="true">/</span><a href="../../#goals">목표 설계</a><span>/</span><span>수시 설계</span></nav>
+   <p class="eyebrow">01 · GRADE PLANNING</p>
+   <div class="intro-row"><div><h1>수시 설계</h1><p class="intro-description">현재 내신의 위치를 이해하고, 남은 학기의 목표와 준비 방향을 구체화합니다.</p></div><span class="edition">2028학년도</span></div>
+  </section>
+  <nav class="section-nav" aria-label="계산 도구"><a href="#position"><small>01</small>내신 환산 분석기</a><a href="#semester"><small>02</small>목표 성적 시뮬레이션</a><a href="#placement"><small>03</small>내신 비교표</a></nav>
+  <p class="notice">진학자료들을 활용한 예측값입니다. 전국 실측 순위나 대학 합격선이 아닙니다.</p>
+  <section id="position" class="tool-section">
+    <div class="section-title"><span class="step">01</span><div><h2>내신 환산 분석기</h2><p>5등급제 · 국영수사과 단순 평균</p></div></div>
+    <div class="workspace comparison-workspace">
+      <div class="panel comparison-card">
+        <h3>3학기 <span>2학년 1학기까지</span></h3>
+        <form id="position-form" novalidate>
+          <label for="position-grade">3학기 평균 내신</label>
+          <div class="grade-stepper"><button type="button" data-adjust="position" data-delta="-0.01" aria-label="3학기 내신 0.01 낮추기">−</button><input id="position-grade" type="number" min="1" max="5" step="0.01" value="2.00" inputmode="decimal" required><button type="button" data-adjust="position" data-delta="0.01" aria-label="3학기 내신 0.01 높이기">＋</button></div>
+          <input id="position-range" type="range" min="1" max="5" step="0.01" value="2" aria-label="3학기 평균 내신 조절">
+          <div class="range-ends"><span>1.00</span><span>5.00</span></div>
+        </form>
+        <div id="position-result" class="result prediction-result" role="status" aria-live="polite" aria-atomic="true"></div>
+      </div>
+      <div class="panel comparison-card">
+        <h3>5학기 <span>3학년 1학기까지</span></h3>
+        <form id="forecast-form" novalidate>
+          <label for="forecast-grade">5학기 평균 내신</label>
+          <div class="grade-stepper"><button type="button" data-adjust="forecast" data-delta="-0.01" aria-label="5학기 내신 0.01 낮추기">−</button><input id="forecast-grade" type="number" min="1" max="5" step="0.01" value="2.00" inputmode="decimal" required><button type="button" data-adjust="forecast" data-delta="0.01" aria-label="5학기 내신 0.01 높이기">＋</button></div>
+          <input id="forecast-range" type="range" min="1" max="5" step="0.01" value="2" aria-label="5학기 평균 내신 조절">
+          <div class="range-ends"><span>1.00</span><span>5.00</span></div>
+        </form>
+        <div id="forecast-result" class="result prediction-result" role="status" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </div>
+    <button id="compare-same-grade" type="button" class="compare-sync">3학기 내신으로 맞춰 비교</button>
+  </section>
+
+  <section id="semester" class="tool-section">
+    <span id="target" class="anchor-alias" aria-hidden="true"></span>
+    <div class="section-title"><span class="step">02</span><div><h2>목표 성적 시뮬레이션</h2><p>학기별 성적과 최종 목표를 바탕으로 남은 학기에 필요한 평균을 계산합니다.</p></div></div>
+    <div class="workspace planner-workspace">
+      <form id="semester-form" class="panel" novalidate>
+        <label for="completed-semesters">성적이 나온 마지막 학기</label>
+        <select id="completed-semesters">
+          <option value="0">아직 성적 없음 · 5학기 남음</option>
+          <option value="1">1학년 1학기까지 · 4학기 남음</option>
+          <option value="2">1학년 2학기까지 · 3학기 남음</option>
+          <option value="3" selected>2학년 1학기까지 · 2학기 남음</option>
+          <option value="4">2학년 2학기까지 · 1학기 남음</option>
+          <option value="5">3학년 1학기까지 · 성적 입력 완료</option>
+        </select>
+        <p class="help">5등급제 · 국영수사과 학기별 단순 평균</p>
+        <div id="semester-inputs" class="semester-inputs"></div>
+        <label class="course-toggle"><input id="use-course-counts" type="checkbox"> 학기별 과목 수가 다를 때 보정</label>
+        <p id="plan-weight-note" class="help">학기별 과목 수가 같다고 가정합니다.</p>
+        <label for="target-grade">3학년 1학기까지 최종 목표 내신 (이하)</label>
+        <input id="target-grade" type="number" min="1" max="5" step="0.01" value="1.80" inputmode="decimal" required>
+        <button type="submit">필요한 성적 계산 →</button>
+      </form>
+      <div class="panel result planner-result">
+        <div id="target-result" role="status" aria-live="polite" aria-atomic="true"></div>
+        <fieldset id="scenario-controls" class="scenario-controls">
+          <legend>다른 성적도 가정해 보기</legend>
+          <label for="future-grade">남은 학기 예상 평균 내신</label>
+          <div class="range-pair"><input id="future-range" type="range" min="1" max="5" step="0.01" value="2" aria-label="남은 학기 예상 평균 조절"><input id="future-grade" type="number" min="1" max="5" step="0.01" value="2.00" inputmode="decimal" required></div>
+          <button id="use-required" class="secondary" type="button">필요 평균으로 맞추기</button>
+        </fieldset>
+        <div id="semester-result" class="scenario-result" role="status" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="placement" class="tool-section">
+    <div class="section-title"><span class="step">03</span><div><h2>내신 비교표</h2><p>5등급제 평균에 따른 9등급 추정값과 누적비를 비교합니다.</p></div></div>
+    <div class="panel">
+      <div class="table-controls"><div><label for="table-basis">비교 기준</label><select id="table-basis"><option value="observed">3학기 · 2학년 1학기까지</option><option value="forecast">5학기 · 3학년 1학기까지</option></select></div><div><label for="table-highlight">강조할 5등급제 내신</label><input id="table-highlight" type="number" min="1" max="5" step="0.01" value="2.00" inputmode="decimal"></div><button id="apply-simulation" type="button" class="secondary">시뮬레이션 결과 적용</button></div>
+      <p id="table-description" class="help"></p><p id="table-status" class="context" role="status"></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="누적비 참고 배치표, 좁은 화면에서는 좌우로 스크롤"><table id="placement-table"><caption id="table-caption"></caption><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+    </div>
+  </section>
+
+  <noscript><p class="notice">계산과 배치표를 사용하려면 JavaScript를 켜 주세요.</p></noscript>
+  
+ </main></div><footer class="site-footer"><div class="footer-inner"><span>LAST UPDATED <time datetime="2026-11-09">Nov 09, 2026</time></span><a href="../../#intro">입장 화면</a><span class="signature">AHNTIBODY</span></div></footer></div></body></html>

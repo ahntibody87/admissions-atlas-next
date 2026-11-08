@@ -111,3 +111,6 @@ body[data-view=intro]{overflow:hidden}body.landing-session #app{padding-top:0}bo
 .enter-label{border:0;border-bottom:1px solid #ffffffbf;border-radius:0;background:transparent;padding:10px 0;min-height:44px}
 .entry-surface:hover .enter-label{background:transparent;border-bottom-color:#fff}
 @media(max-width:760px){.enter-label{padding:10px 0}}
+
+/* Readable home title; focus remains visible for keyboard navigation. */
+.home-layout .home-intro h1{line-height:1.4}#home-title:focus:not(:focus-visible){outline:none}#home-title:focus-visible,#page-title:focus-visible{outline:3px solid #ffb74c;outline-offset:5px}
