@@ -103,3 +103,11 @@ body[data-view=intro]{overflow:hidden}body.landing-session #app{padding-top:0}bo
 @media(max-width:760px){.entrance-top .header-inner>span{max-width:168px;font-size:8px;letter-spacing:1px}.entrance-top .header-inner{gap:14px}}
 @media(max-width:359px){.entrance-top .header-inner>span{max-width:135px;font-size:7px}}
 .enter-label{color:#fff;background:#0a20386b}.entry-surface:hover .enter-label{background:#0a20389c}
+/* Keep the opening wordmark without a navigation bar. */
+.entrance-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.entrance-top .brand{color:#fff;text-shadow:0 1px 8px #0009}
+.entrance-top .header-inner>span{color:#fff;text-shadow:0 1px 8px #0009}
+.intro-title{transform:translateY(18px)}
+.enter-label{border:0;border-bottom:1px solid #ffffffbf;border-radius:0;background:transparent;padding:10px 0;min-height:44px}
+.entry-surface:hover .enter-label{background:transparent;border-bottom-color:#fff}
+@media(max-width:760px){.enter-label{padding:10px 0}}
