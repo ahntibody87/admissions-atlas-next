@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "node tools/serve.cjs",
-    "check": "node --check app.js && node --check data.js && node --check tools/serve.cjs"
+    "check": "node --check app.js && node --check data.js && node --check tools/serve.cjs && node --check tools/prepare-assets.cjs"
   }
 }

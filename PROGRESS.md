@@ -25,3 +25,12 @@
 ## 원격 반영
 
 아래 단계는 실제 결과 확인 후 추가 기록.
+
+### 원격·Pages 확인
+
+- 구현 커밋 ffabaefbe009a549158a1e9ccdee5c9b9e8bbc2c: 일반 Git push 성공. GitHub 연결 도구로 원격 main SHA 일치 확인.
+- Pages 배포 실행 42469638472: completed / success 확인. https://github.com/ahntibody87/admissions-atlas-next/actions/runs/42469638472
+- 공개 https://ahntibody87.github.io/admissions-atlas-next/ 에서 새 입장 화면, 실사 영상 실제 재생(readyState 4, 1600px), 표지와 Pretendard 로딩 확인.
+- 공개 PC 1280×720에서 한 번 스크롤 → 확대 → 내부 메뉴 확인. 공개 모바일 390×844에서 Enter 입장, 모바일 메뉴, 서울대 검색(1/29), 실제 운영 대학 상세 URL, 가로 넘침 없음 확인. 정상 공개 페이지 오류/경고 0건.
+- 로컬 및 공개 화면 증거는 이 작업의 outputs에 저장. 모바일 크기 브라우저 검증이며 실제 iOS/Android 기기 검사는 아님.
+- 재실행 시 지도가 복원되지 않도록 이전 prepare-assets.cjs의 지도 생성도 제거. 데이터 추출과 폰트 복사만 유지, 구문 검사에 포함.
