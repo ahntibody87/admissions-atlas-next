@@ -113,4 +113,4 @@ body[data-view=intro]{overflow:hidden}body.landing-session #app{padding-top:0}bo
 @media(max-width:760px){.enter-label{padding:10px 0}}
 
 /* Readable home title; focus remains visible for keyboard navigation. */
-.home-layout .home-intro h1{line-height:1.4}#home-title:focus:not(:focus-visible){outline:none}#home-title:focus-visible,#page-title:focus-visible{outline:3px solid #ffb74c;outline-offset:5px}
+.home-layout .home-intro h1{line-height:1.4}#home-title:focus,#page-title:focus{outline:none}
